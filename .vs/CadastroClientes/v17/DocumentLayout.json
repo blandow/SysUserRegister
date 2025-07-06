@@ -1,0 +1,147 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\felip\\source\\repos\\CadastroClientes\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{0DC595BE-57DF-4C8B-90FF-D9CD13A553B8}|CadastroClientes\\CadastroClientes.csproj|c:\\users\\felip\\source\\repos\\cadastroclientes\\cadastroclientes\\frmmenu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{0DC595BE-57DF-4C8B-90FF-D9CD13A553B8}|CadastroClientes\\CadastroClientes.csproj|solutionrelative:cadastroclientes\\frmmenu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0DC595BE-57DF-4C8B-90FF-D9CD13A553B8}|CadastroClientes\\CadastroClientes.csproj|C:\\Users\\felip\\source\\repos\\CadastroClientes\\cadastroclientes\\frmmenu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0DC595BE-57DF-4C8B-90FF-D9CD13A553B8}|CadastroClientes\\CadastroClientes.csproj|solutionrelative:cadastroclientes\\frmmenu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0DC595BE-57DF-4C8B-90FF-D9CD13A553B8}|CadastroClientes\\CadastroClientes.csproj|C:\\Users\\felip\\source\\repos\\CadastroClientes\\cadastroclientes\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0DC595BE-57DF-4C8B-90FF-D9CD13A553B8}|CadastroClientes\\CadastroClientes.csproj|solutionrelative:cadastroclientes\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0DC595BE-57DF-4C8B-90FF-D9CD13A553B8}|CadastroClientes\\CadastroClientes.csproj|C:\\Users\\felip\\source\\repos\\CadastroClientes\\cadastroclientes\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{0DC595BE-57DF-4C8B-90FF-D9CD13A553B8}|CadastroClientes\\CadastroClientes.csproj|solutionrelative:cadastroclientes\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0DC595BE-57DF-4C8B-90FF-D9CD13A553B8}|CadastroClientes\\CadastroClientes.csproj|C:\\Users\\felip\\source\\repos\\CadastroClientes\\cadastroclientes\\form1.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0DC595BE-57DF-4C8B-90FF-D9CD13A553B8}|CadastroClientes\\CadastroClientes.csproj|solutionrelative:cadastroclientes\\form1.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0DC595BE-57DF-4C8B-90FF-D9CD13A553B8}|CadastroClientes\\CadastroClientes.csproj|C:\\Users\\felip\\source\\repos\\CadastroClientes\\cadastroclientes\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0DC595BE-57DF-4C8B-90FF-D9CD13A553B8}|CadastroClientes\\CadastroClientes.csproj|solutionrelative:cadastroclientes\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0DC595BE-57DF-4C8B-90FF-D9CD13A553B8}|CadastroClientes\\CadastroClientes.csproj|C:\\Users\\felip\\source\\repos\\CadastroClientes\\cadastroclientes\\frmmenu.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0DC595BE-57DF-4C8B-90FF-D9CD13A553B8}|CadastroClientes\\CadastroClientes.csproj|solutionrelative:cadastroclientes\\frmmenu.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0DC595BE-57DF-4C8B-90FF-D9CD13A553B8}|CadastroClientes\\CadastroClientes.csproj|C:\\Users\\felip\\source\\repos\\CadastroClientes\\cadastroclientes\\utils.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0DC595BE-57DF-4C8B-90FF-D9CD13A553B8}|CadastroClientes\\CadastroClientes.csproj|solutionrelative:cadastroclientes\\utils.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "FrmMenu.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\felip\\source\\repos\\CadastroClientes\\CadastroClientes\\FrmMenu.cs",
+              "RelativeDocumentMoniker": "CadastroClientes\\FrmMenu.cs",
+              "ToolTip": "C:\\Users\\felip\\source\\repos\\CadastroClientes\\CadastroClientes\\FrmMenu.cs [Design]",
+              "RelativeToolTip": "CadastroClientes\\FrmMenu.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-19T14:00:54.283Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\felip\\source\\repos\\CadastroClientes\\CadastroClientes\\Program.cs",
+              "RelativeDocumentMoniker": "CadastroClientes\\Program.cs",
+              "ToolTip": "C:\\Users\\felip\\source\\repos\\CadastroClientes\\CadastroClientes\\Program.cs",
+              "RelativeToolTip": "CadastroClientes\\Program.cs",
+              "ViewState": "AQIAAAUAAAAAAAAAAAArwA8AAAAIAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-16T19:22:14.387Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "FrmMenu.cs",
+              "DocumentMoniker": "C:\\Users\\felip\\source\\repos\\CadastroClientes\\CadastroClientes\\FrmMenu.cs",
+              "RelativeDocumentMoniker": "CadastroClientes\\FrmMenu.cs",
+              "ToolTip": "C:\\Users\\felip\\source\\repos\\CadastroClientes\\CadastroClientes\\FrmMenu.cs",
+              "RelativeToolTip": "CadastroClientes\\FrmMenu.cs",
+              "ViewState": "AQIAACoAAAAAAAAAAAAswI0AAAAMAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-19T14:03:58.119Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Form1.cs",
+              "DocumentMoniker": "C:\\Users\\felip\\source\\repos\\CadastroClientes\\CadastroClientes\\Form1.cs",
+              "RelativeDocumentMoniker": "CadastroClientes\\Form1.cs",
+              "ToolTip": "C:\\Users\\felip\\source\\repos\\CadastroClientes\\CadastroClientes\\Form1.cs",
+              "RelativeToolTip": "CadastroClientes\\Form1.cs",
+              "ViewState": "AQIAAFoBAAAAAAAAAAAwwGoBAAATAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-08T18:58:11.744Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Form1.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\felip\\source\\repos\\CadastroClientes\\CadastroClientes\\Form1.cs",
+              "RelativeDocumentMoniker": "CadastroClientes\\Form1.cs",
+              "ToolTip": "C:\\Users\\felip\\source\\repos\\CadastroClientes\\CadastroClientes\\Form1.cs [Design]",
+              "RelativeToolTip": "CadastroClientes\\Form1.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-26T20:26:34.109Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "Utils.cs",
+              "DocumentMoniker": "C:\\Users\\felip\\source\\repos\\CadastroClientes\\CadastroClientes\\Utils.cs",
+              "RelativeDocumentMoniker": "CadastroClientes\\Utils.cs",
+              "ToolTip": "C:\\Users\\felip\\source\\repos\\CadastroClientes\\CadastroClientes\\Utils.cs",
+              "RelativeToolTip": "CadastroClientes\\Utils.cs",
+              "ViewState": "AQIAAAMAAAAAAAAAAAAAACgAAAAJAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-22T16:33:14.692Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "FrmMenu.Designer.cs",
+              "DocumentMoniker": "C:\\Users\\felip\\source\\repos\\CadastroClientes\\CadastroClientes\\FrmMenu.Designer.cs",
+              "RelativeDocumentMoniker": "CadastroClientes\\FrmMenu.Designer.cs",
+              "ToolTip": "C:\\Users\\felip\\source\\repos\\CadastroClientes\\CadastroClientes\\FrmMenu.Designer.cs",
+              "RelativeToolTip": "CadastroClientes\\FrmMenu.Designer.cs",
+              "ViewState": "AQIAALcAAAAAAAAAAAD4v8YAAABnAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-27T14:05:21.194Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Form1.Designer.cs",
+              "DocumentMoniker": "C:\\Users\\felip\\source\\repos\\CadastroClientes\\CadastroClientes\\Form1.Designer.cs",
+              "RelativeDocumentMoniker": "CadastroClientes\\Form1.Designer.cs",
+              "ToolTip": "C:\\Users\\felip\\source\\repos\\CadastroClientes\\CadastroClientes\\Form1.Designer.cs",
+              "RelativeToolTip": "CadastroClientes\\Form1.Designer.cs",
+              "ViewState": "AQIAAA4AAAAAAAAAAAAgwBwAAAAoAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-08T18:50:02.724Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
