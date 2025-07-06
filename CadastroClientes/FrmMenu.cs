@@ -56,6 +56,7 @@ namespace CadastroClientes
             if (!string.IsNullOrEmpty(tbSearchId.Text))
             {
                 query += $" AND id = {tbSearchId.Text}" ;
+                
             }
 
             if(!string.IsNullOrEmpty(tbSearchDocName.Text)) 
@@ -112,7 +113,7 @@ namespace CadastroClientes
 
             }catch (Exception ex)
             {
-
+                Utils.msgError(ex.Message);
             }
 
             if (rbSearchActive.Checked)
