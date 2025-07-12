@@ -197,7 +197,7 @@ namespace CadastroClientes
         }
         private void addDBValuesFromForm()
         {
-            MySqlConnection conect = new MySqlConnection("Server=localhost;Port=3306;Database=base_client;User=root;Password=Abc/123");
+            MySqlConnection conect = new MySqlConnection(Utils.conectStr);
             conect.Open();
             using (MySqlCommand com = conect.CreateCommand())
             {

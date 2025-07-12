@@ -9,8 +9,10 @@ namespace CadastroClientes
 {
     internal class Utils
     {
+        public static string conectStr = "Server=localhost;Port=3306;Database=base_client;User=root;Password=Abc/123";
         public static void limparCampos(List<Control> controlList)
         {
+
             foreach (Control Controle in controlList)
             {
 
@@ -59,7 +61,7 @@ namespace CadastroClientes
         public static DataTable getQuery(string query)
         {
             DataTable dt = new DataTable();
-            using (MySqlConnection conect = new MySqlConnection("Server=localhost;Port=3306;Database=base_client;User=root;Password=Abc/123"))
+            using (MySqlConnection conect = new MySqlConnection(conectStr))
             {
                 conect.Open();
                 

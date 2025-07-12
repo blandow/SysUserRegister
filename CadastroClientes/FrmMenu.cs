@@ -113,7 +113,7 @@ namespace CadastroClientes
 
             }catch (Exception ex)
             {
-                Utils.msgError(ex.Message);
+              //  Utils.msgError(ex.Message);
             }
 
             if (rbSearchActive.Checked)
