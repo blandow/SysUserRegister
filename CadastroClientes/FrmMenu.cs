@@ -1,5 +1,6 @@
 ﻿using Google.Protobuf.WellKnownTypes;
 using System;
+using System.Collections.Generic;
 using System.Drawing;
 using System.IO;
 using System.Windows.Forms;
@@ -18,7 +19,7 @@ namespace CadastroClientes
             dgList.DataSource = Utils.getQuery(GetlistQuery());
             dgList.Height = ((dgList.RowCount * 30)) > 464 ? 380 : ((dgList.RowCount * 30) + 60);
 
-            if(dgList.RowCount == 0)
+            if (dgList.RowCount == 0)
                 lblNotFound.Visible = true;
             else
                 lblNotFound.Visible = false;
@@ -29,40 +30,40 @@ namespace CadastroClientes
 
         private void loadList()
         {
-         /*   foreach (DataGridViewRow row in dgList.Rows)
-         *   {
-         *       string img = FrmRegClient._imgPath + row.Cells["id"].Value.ToString() + ".png";
-         *       row.DefaultCellStyle.ForeColor = Color.Peru;
-         *       row.Cells["Foto"].Value = Properties.Resources.esquiador;
-         *
-         *       if (row.Cells["sit_cadastro"].Value.ToString() == "0")
-         *       {
-         *           row.DefaultCellStyle.ForeColor = Color.Red;
-         *       }
-         *       if (File.Exists(img))
-         *       {
-         *           row.Cells["Foto"].Value = Image.FromFile(img);
-         *       }
-         *
-         *   }
-         */
+            /*   foreach (DataGridViewRow row in dgList.Rows)
+            *   {
+            *       string img = FrmRegClient._imgPath + row.Cells["id"].Value.ToString() + ".png";
+            *       row.DefaultCellStyle.ForeColor = Color.Peru;
+            *       row.Cells["Foto"].Value = Properties.Resources.esquiador;
+            *
+            *       if (row.Cells["sit_cadastro"].Value.ToString() == "0")
+            *       {
+            *           row.DefaultCellStyle.ForeColor = Color.Red;
+            *       }
+            *       if (File.Exists(img))
+            *       {
+            *           row.Cells["Foto"].Value = Image.FromFile(img);
+            *       }
+            *
+            *   }
+            */
 
         }
 
         private string GetlistQuery()
         {
             string query = "SELECT * FROM cliente WHERE 1 ";
-            
+
             if (!string.IsNullOrEmpty(tbSearchId.Text))
             {
-                query += $" AND id = {tbSearchId.Text}" ;
-                
+                query += $" AND id = {tbSearchId.Text}";
+
             }
 
-            if(!string.IsNullOrEmpty(tbSearchDocName.Text)) 
+            if (!string.IsNullOrEmpty(tbSearchDocName.Text))
             {
-                
-                query += $" AND (documento like '%{ tbSearchDocName.Text}%' OR nome like '%{tbSearchDocName.Text}%') ";
+
+                query += $" AND (documento like '%{tbSearchDocName.Text}%' OR nome like '%{tbSearchDocName.Text}%') ";
 
             }
 
@@ -71,9 +72,9 @@ namespace CadastroClientes
                 query += $" AND estado_civil = '{cbSearchCivilState.Text}' ";
             }
 
-            switch (cbSearchGender.Text) 
+            switch (cbSearchGender.Text)
             {
-                case  "Masculino":
+                case "Masculino":
 
                     query += $" AND Genero = 'M' ";
                     break;
@@ -111,15 +112,17 @@ namespace CadastroClientes
 
                 query += $" and data_nasc = '{data:yyyy-MM-dd}'";
 
-            }catch (Exception ex)
+            }
+            catch (Exception ex)
             {
-              //  Utils.msgError(ex.Message);
+                //  Utils.msgError(ex.Message);
             }
 
             if (rbSearchActive.Checked)
             {
                 query += " AND sit_cadastro = 1";
-            }else if (rbSearchInative.Checked)
+            }
+            else if (rbSearchInative.Checked)
             {
                 query += " AND sit_cadastro = 0";
             }
@@ -134,7 +137,7 @@ namespace CadastroClientes
             frmRegClient.ShowDialog();
         }
 
-        
+
 
         private void tbSearchId_TextChanged(object sender, EventArgs e)
         {
@@ -145,7 +148,7 @@ namespace CadastroClientes
 
         private void rbSearchAll_CheckedChanged(object sender, EventArgs e)
         {
-            if(rbSearchAll.Checked)
+            if (rbSearchAll.Checked)
             {
                 tbSearchId_TextChanged(sender, e);
             }
@@ -170,7 +173,7 @@ namespace CadastroClientes
 
         private void baseboard()
         {
-            lbTotal.Text = "Total Localizado: "  + dgList.RowCount;
+            lbTotal.Text = "Total Localizado: " + dgList.RowCount;
             int active = 0;
             int inative = 0;
 
@@ -229,7 +232,8 @@ namespace CadastroClientes
             if (File.Exists(img))
             {
                 //row.Cells["Foto"].Value = Image.FromFile(img);
-                using(FileStream imgTemp = new FileStream(img,FileMode.Open, FileAccess.Read)) { 
+                using (FileStream imgTemp = new FileStream(img, FileMode.Open, FileAccess.Read))
+                {
                     Image imfile = Image.FromStream(imgTemp);
                     row.Cells["Foto"].Value = imfile;
                 }
@@ -256,6 +260,35 @@ namespace CadastroClientes
 
 
             frmRegClient.ShowDialog();
+
+        }
+
+        private void dgList_CellEndEdit(object sender, DataGridViewCellEventArgs e)
+        {
+
+
+
+            string val = "";
+            foreach (DataGridViewCell cell in dgList.SelectedCells)
+            {
+
+                string celIdList = dgList.Rows[cell.RowIndex].Cells["id"].Value.ToString();
+                string columName = dgList.Columns[cell.ColumnIndex].DataPropertyName.ToString();
+                if (dgList.SelectedCells[0].RowIndex == cell.RowIndex)
+                {
+                    val = dgList.Rows[cell.RowIndex].Cells[columName].Value.ToString();
+                    if (!Utils.msgYesNO($"Tem certeza que deseja alterar todos os valores selecionados para {val}?"))
+                    {
+                        break;
+                    }
+                }
+                else
+                {
+
+                    Utils.updateComand(celIdList, new Dictionary<string, string>() { { columName, val } });
+                    cell.Value = val;
+                }
+            }
 
         }
     }

@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Runtime.CompilerServices;
+using System.Security.Cryptography;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
 
@@ -57,7 +59,6 @@ namespace CadastroClientes
         {
             return MessageBox.Show(msg,"Confirmação",MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes;
         }
-
         public static DataTable getQuery(string query)
         {
             DataTable dt = new DataTable();
@@ -77,7 +78,6 @@ namespace CadastroClientes
             }
             return dt;
         }
-
         public static void setCombobox(List<ComboBox> cblist)
         {
             foreach(var cbitem in cblist){
@@ -92,6 +92,26 @@ namespace CadastroClientes
                 cbitem.SelectedIndex = -1;
             }
         }
+        public static void updateComand(string id,Dictionary<string,string> data)
+        {
+            using (MySqlConnection con = new MySqlConnection(conectStr)) {
+                con.Open();
+                using (MySqlCommand cmd = con.CreateCommand())
+                {
+                    string query = "UPDATE cliente SET ";
+                    foreach (var item in data.Keys)
+                    {
+                         query += item + $" = '{data[item]}' ,";
+                        
+                    };
+                    query = query.TrimEnd(',');
+                    query += $" WHERE id = {id};";
 
+                    cmd.CommandText = query;
+                    cmd.ExecuteNonQuery();
+                }
+                
+            }
+        }
     }
 }
