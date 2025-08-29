@@ -55,7 +55,7 @@ namespace CadastroClientes
             public string siafi { get; set; }
         }
 
-        public static string _imgPath = AppDomain.CurrentDomain.BaseDirectory + "/Fotos/";
+        public static string _imgPath = AppDomain.CurrentDomain.BaseDirectory + $"Fotos\\";
         public List<TextBox> initiateListTextBox()
         {
             List<TextBox> listTextBox = new List<TextBox>();

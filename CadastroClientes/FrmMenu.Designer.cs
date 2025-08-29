@@ -38,6 +38,25 @@
             this.btnEdit = new System.Windows.Forms.Button();
             this.btnAdd = new System.Windows.Forms.Button();
             this.dgList = new System.Windows.Forms.DataGridView();
+            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.foto = new System.Windows.Forms.DataGridViewImageColumn();
+            this.nome = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tipo_doc = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.documento = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.rg = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.email = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.estado_civil = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.celular = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Genero = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.data_nasc = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cidade = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.numero = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.bairro = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cep = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.endereco = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.estado = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.obs = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.sit_cadastro = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.gbSearchId = new System.Windows.Forms.GroupBox();
             this.rbSearchInative = new System.Windows.Forms.RadioButton();
             this.rbSearchActive = new System.Windows.Forms.RadioButton();
@@ -58,25 +77,8 @@
             this.lbActive = new System.Windows.Forms.Label();
             this.lbInative = new System.Windows.Forms.Label();
             this.lblNotFound = new System.Windows.Forms.Label();
-            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.foto = new System.Windows.Forms.DataGridViewImageColumn();
-            this.nome = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.tipo_doc = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.documento = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.rg = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.email = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.estado_civil = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.celular = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Genero = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.data_nasc = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cidade = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.numero = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.bairro = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cep = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.endereco = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.estado = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.obs = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.sit_cadastro = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.RepCadastro = new Microsoft.Reporting.WinForms.ReportViewer();
+            this.reportPdfViewer1 = new Microsoft.Reporting.WinForms.ReportViewer();
             this.gbAct.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgList)).BeginInit();
             this.gbSearchId.SuspendLayout();
@@ -112,6 +114,7 @@
             this.btnId.Size = new System.Drawing.Size(80, 80);
             this.btnId.TabIndex = 1;
             this.btnId.UseVisualStyleBackColor = false;
+            this.btnId.Click += new System.EventHandler(this.btnId_Click);
             // 
             // btnReport
             // 
@@ -127,6 +130,7 @@
             this.btnReport.Size = new System.Drawing.Size(80, 80);
             this.btnReport.TabIndex = 1;
             this.btnReport.UseVisualStyleBackColor = false;
+            this.btnReport.Click += new System.EventHandler(this.btnReport_Click);
             // 
             // btnEdit
             // 
@@ -167,7 +171,6 @@
             this.dgList.AllowUserToDeleteRows = false;
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.dgList.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
-            this.dgList.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dgList.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
             this.dgList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgList.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -192,19 +195,202 @@
             this.sit_cadastro});
             this.dgList.Location = new System.Drawing.Point(12, 137);
             this.dgList.Name = "dgList";
+            this.dgList.ReadOnly = true;
             this.dgList.RowHeadersVisible = false;
             this.dgList.RowHeadersWidth = 5;
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dgList.RowsDefaultCellStyle = dataGridViewCellStyle3;
             this.dgList.RowTemplate.Height = 30;
+            this.dgList.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgList.Size = new System.Drawing.Size(1460, 464);
             this.dgList.TabIndex = 1;
+            this.dgList.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgList_CellClick);
             this.dgList.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgList_CellContentClick);
             this.dgList.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgList_CellEndEdit);
             this.dgList.CellMouseEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgList_CellMouseEnter);
             this.dgList.CellMouseLeave += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgList_CellMouseLeave);
             this.dgList.MouseEnter += new System.EventHandler(this.dgList_MouseEnter);
             this.dgList.MouseLeave += new System.EventHandler(this.dgList_MouseLeave);
+            // 
+            // id
+            // 
+            this.id.DataPropertyName = "id";
+            this.id.Frozen = true;
+            this.id.HeaderText = "Nº";
+            this.id.MinimumWidth = 6;
+            this.id.Name = "id";
+            this.id.ReadOnly = true;
+            this.id.Width = 51;
+            // 
+            // foto
+            // 
+            this.foto.FillWeight = 120F;
+            this.foto.Frozen = true;
+            this.foto.HeaderText = "Foto";
+            this.foto.Image = ((System.Drawing.Image)(resources.GetObject("foto.Image")));
+            this.foto.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
+            this.foto.MinimumWidth = 60;
+            this.foto.Name = "foto";
+            this.foto.ReadOnly = true;
+            this.foto.Width = 60;
+            // 
+            // nome
+            // 
+            this.nome.DataPropertyName = "nome";
+            this.nome.Frozen = true;
+            this.nome.HeaderText = "Nome";
+            this.nome.MinimumWidth = 80;
+            this.nome.Name = "nome";
+            this.nome.ReadOnly = true;
+            this.nome.Width = 80;
+            // 
+            // tipo_doc
+            // 
+            this.tipo_doc.DataPropertyName = "tipo_doc";
+            this.tipo_doc.HeaderText = "Tipo de Documento";
+            this.tipo_doc.MinimumWidth = 6;
+            this.tipo_doc.Name = "tipo_doc";
+            this.tipo_doc.ReadOnly = true;
+            this.tipo_doc.Width = 142;
+            // 
+            // documento
+            // 
+            this.documento.DataPropertyName = "documento";
+            this.documento.HeaderText = "Documento";
+            this.documento.MinimumWidth = 6;
+            this.documento.Name = "documento";
+            this.documento.ReadOnly = true;
+            this.documento.Width = 105;
+            // 
+            // rg
+            // 
+            this.rg.DataPropertyName = "rg";
+            this.rg.HeaderText = "RG";
+            this.rg.MinimumWidth = 6;
+            this.rg.Name = "rg";
+            this.rg.ReadOnly = true;
+            this.rg.Width = 56;
+            // 
+            // email
+            // 
+            this.email.DataPropertyName = "email";
+            this.email.HeaderText = "E-mail";
+            this.email.MinimumWidth = 6;
+            this.email.Name = "email";
+            this.email.ReadOnly = true;
+            this.email.Width = 74;
+            // 
+            // estado_civil
+            // 
+            this.estado_civil.DataPropertyName = "estado_civil";
+            this.estado_civil.HeaderText = "Estado Civil";
+            this.estado_civil.MinimumWidth = 6;
+            this.estado_civil.Name = "estado_civil";
+            this.estado_civil.ReadOnly = true;
+            this.estado_civil.Width = 99;
+            // 
+            // celular
+            // 
+            this.celular.DataPropertyName = "celular";
+            this.celular.HeaderText = "Celular/Telefone";
+            this.celular.MinimumWidth = 6;
+            this.celular.Name = "celular";
+            this.celular.ReadOnly = true;
+            this.celular.Width = 136;
+            // 
+            // Genero
+            // 
+            this.Genero.DataPropertyName = "Genero";
+            this.Genero.HeaderText = "Genero";
+            this.Genero.MinimumWidth = 6;
+            this.Genero.Name = "Genero";
+            this.Genero.ReadOnly = true;
+            this.Genero.Width = 81;
+            // 
+            // data_nasc
+            // 
+            this.data_nasc.DataPropertyName = "data_nasc";
+            dataGridViewCellStyle2.Format = "d";
+            dataGridViewCellStyle2.NullValue = null;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.data_nasc.DefaultCellStyle = dataGridViewCellStyle2;
+            this.data_nasc.HeaderText = "Data Nascimento";
+            this.data_nasc.MinimumWidth = 6;
+            this.data_nasc.Name = "data_nasc";
+            this.data_nasc.ReadOnly = true;
+            this.data_nasc.Width = 128;
+            // 
+            // cidade
+            // 
+            this.cidade.DataPropertyName = "cidade";
+            this.cidade.HeaderText = "Cidade";
+            this.cidade.MinimumWidth = 6;
+            this.cidade.Name = "cidade";
+            this.cidade.ReadOnly = true;
+            this.cidade.Width = 80;
+            // 
+            // numero
+            // 
+            this.numero.DataPropertyName = "numero";
+            this.numero.HeaderText = "número";
+            this.numero.MinimumWidth = 6;
+            this.numero.Name = "numero";
+            this.numero.ReadOnly = true;
+            this.numero.Width = 81;
+            // 
+            // bairro
+            // 
+            this.bairro.DataPropertyName = "bairro";
+            this.bairro.HeaderText = "Bairro";
+            this.bairro.MinimumWidth = 6;
+            this.bairro.Name = "bairro";
+            this.bairro.ReadOnly = true;
+            this.bairro.Width = 72;
+            // 
+            // cep
+            // 
+            this.cep.DataPropertyName = "cep";
+            this.cep.HeaderText = "CEP";
+            this.cep.MinimumWidth = 6;
+            this.cep.Name = "cep";
+            this.cep.ReadOnly = true;
+            this.cep.Width = 63;
+            // 
+            // endereco
+            // 
+            this.endereco.DataPropertyName = "endereco";
+            this.endereco.HeaderText = "Endereço";
+            this.endereco.MinimumWidth = 6;
+            this.endereco.Name = "endereco";
+            this.endereco.ReadOnly = true;
+            this.endereco.Width = 95;
+            // 
+            // estado
+            // 
+            this.estado.DataPropertyName = "estado";
+            this.estado.HeaderText = "Estado";
+            this.estado.MinimumWidth = 6;
+            this.estado.Name = "estado";
+            this.estado.ReadOnly = true;
+            this.estado.Width = 79;
+            // 
+            // obs
+            // 
+            this.obs.DataPropertyName = "obs";
+            this.obs.HeaderText = "Observação";
+            this.obs.MinimumWidth = 6;
+            this.obs.Name = "obs";
+            this.obs.ReadOnly = true;
+            this.obs.Width = 111;
+            // 
+            // sit_cadastro
+            // 
+            this.sit_cadastro.DataPropertyName = "sit_cadastro";
+            this.sit_cadastro.HeaderText = "Situação do Cadastro";
+            this.sit_cadastro.MinimumWidth = 6;
+            this.sit_cadastro.Name = "sit_cadastro";
+            this.sit_cadastro.ReadOnly = true;
+            this.sit_cadastro.Width = 152;
             // 
             // gbSearchId
             // 
@@ -452,171 +638,27 @@
             this.lblNotFound.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.lblNotFound.Visible = false;
             // 
-            // id
+            // RepCadastro
             // 
-            this.id.DataPropertyName = "id";
-            this.id.Frozen = true;
-            this.id.HeaderText = "Nº";
-            this.id.MinimumWidth = 6;
-            this.id.Name = "id";
-            this.id.ReadOnly = true;
-            this.id.Width = 51;
+            this.RepCadastro.LocalReport.EnableExternalImages = true;
+            this.RepCadastro.LocalReport.ReportEmbeddedResource = "CadastroClientes.FichaCadastro.rdlc";
+            this.RepCadastro.Location = new System.Drawing.Point(26, 184);
+            this.RepCadastro.Name = "RepCadastro";
+            this.RepCadastro.ServerReport.BearerToken = null;
+            this.RepCadastro.Size = new System.Drawing.Size(396, 246);
+            this.RepCadastro.TabIndex = 3;
+            this.RepCadastro.Visible = false;
+            this.RepCadastro.Load += new System.EventHandler(this.RepCadastro_Load);
             // 
-            // foto
+            // reportPdfViewer1
             // 
-            this.foto.FillWeight = 120F;
-            this.foto.Frozen = true;
-            this.foto.HeaderText = "Foto";
-            this.foto.Image = ((System.Drawing.Image)(resources.GetObject("foto.Image")));
-            this.foto.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
-            this.foto.MinimumWidth = 60;
-            this.foto.Name = "foto";
-            this.foto.ReadOnly = true;
-            this.foto.Width = 60;
-            // 
-            // nome
-            // 
-            this.nome.DataPropertyName = "nome";
-            this.nome.Frozen = true;
-            this.nome.HeaderText = "Nome";
-            this.nome.MinimumWidth = 80;
-            this.nome.Name = "nome";
-            this.nome.ReadOnly = true;
-            this.nome.Width = 80;
-            // 
-            // tipo_doc
-            // 
-            this.tipo_doc.DataPropertyName = "tipo_doc";
-            this.tipo_doc.HeaderText = "Tipo de Documento";
-            this.tipo_doc.MinimumWidth = 6;
-            this.tipo_doc.Name = "tipo_doc";
-            this.tipo_doc.ReadOnly = true;
-            this.tipo_doc.Width = 142;
-            // 
-            // documento
-            // 
-            this.documento.DataPropertyName = "documento";
-            this.documento.HeaderText = "Documento";
-            this.documento.MinimumWidth = 6;
-            this.documento.Name = "documento";
-            this.documento.ReadOnly = true;
-            this.documento.Width = 105;
-            // 
-            // rg
-            // 
-            this.rg.DataPropertyName = "rg";
-            this.rg.HeaderText = "RG";
-            this.rg.MinimumWidth = 6;
-            this.rg.Name = "rg";
-            this.rg.Width = 56;
-            // 
-            // email
-            // 
-            this.email.DataPropertyName = "email";
-            this.email.HeaderText = "E-mail";
-            this.email.MinimumWidth = 6;
-            this.email.Name = "email";
-            this.email.Width = 74;
-            // 
-            // estado_civil
-            // 
-            this.estado_civil.DataPropertyName = "estado_civil";
-            this.estado_civil.HeaderText = "Estado Civil";
-            this.estado_civil.MinimumWidth = 6;
-            this.estado_civil.Name = "estado_civil";
-            this.estado_civil.Width = 99;
-            // 
-            // celular
-            // 
-            this.celular.DataPropertyName = "celular";
-            this.celular.HeaderText = "Celular/Telefone";
-            this.celular.MinimumWidth = 6;
-            this.celular.Name = "celular";
-            this.celular.Width = 136;
-            // 
-            // Genero
-            // 
-            this.Genero.DataPropertyName = "Genero";
-            this.Genero.HeaderText = "Genero";
-            this.Genero.MinimumWidth = 6;
-            this.Genero.Name = "Genero";
-            this.Genero.Width = 81;
-            // 
-            // data_nasc
-            // 
-            this.data_nasc.DataPropertyName = "data_nasc";
-            dataGridViewCellStyle2.Format = "d";
-            dataGridViewCellStyle2.NullValue = null;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.data_nasc.DefaultCellStyle = dataGridViewCellStyle2;
-            this.data_nasc.HeaderText = "Data Nascimento";
-            this.data_nasc.MinimumWidth = 6;
-            this.data_nasc.Name = "data_nasc";
-            this.data_nasc.Width = 128;
-            // 
-            // cidade
-            // 
-            this.cidade.DataPropertyName = "cidade";
-            this.cidade.HeaderText = "Cidade";
-            this.cidade.MinimumWidth = 6;
-            this.cidade.Name = "cidade";
-            this.cidade.Width = 80;
-            // 
-            // numero
-            // 
-            this.numero.DataPropertyName = "numero";
-            this.numero.HeaderText = "número";
-            this.numero.MinimumWidth = 6;
-            this.numero.Name = "numero";
-            this.numero.Width = 81;
-            // 
-            // bairro
-            // 
-            this.bairro.DataPropertyName = "bairro";
-            this.bairro.HeaderText = "Bairro";
-            this.bairro.MinimumWidth = 6;
-            this.bairro.Name = "bairro";
-            this.bairro.Width = 72;
-            // 
-            // cep
-            // 
-            this.cep.DataPropertyName = "cep";
-            this.cep.HeaderText = "CEP";
-            this.cep.MinimumWidth = 6;
-            this.cep.Name = "cep";
-            this.cep.Width = 63;
-            // 
-            // endereco
-            // 
-            this.endereco.DataPropertyName = "endereco";
-            this.endereco.HeaderText = "Endereço";
-            this.endereco.MinimumWidth = 6;
-            this.endereco.Name = "endereco";
-            this.endereco.Width = 95;
-            // 
-            // estado
-            // 
-            this.estado.DataPropertyName = "estado";
-            this.estado.HeaderText = "Estado";
-            this.estado.MinimumWidth = 6;
-            this.estado.Name = "estado";
-            this.estado.Width = 79;
-            // 
-            // obs
-            // 
-            this.obs.DataPropertyName = "obs";
-            this.obs.HeaderText = "Observação";
-            this.obs.MinimumWidth = 6;
-            this.obs.Name = "obs";
-            this.obs.Width = 111;
-            // 
-            // sit_cadastro
-            // 
-            this.sit_cadastro.DataPropertyName = "sit_cadastro";
-            this.sit_cadastro.HeaderText = "Situação do Cadastro";
-            this.sit_cadastro.MinimumWidth = 6;
-            this.sit_cadastro.Name = "sit_cadastro";
-            this.sit_cadastro.Width = 152;
+            this.reportPdfViewer1.LocalReport.ReportEmbeddedResource = "CadastroClientes.PdfReport.rdlc";
+            this.reportPdfViewer1.Location = new System.Drawing.Point(615, 328);
+            this.reportPdfViewer1.Name = "reportPdfViewer1";
+            this.reportPdfViewer1.ServerReport.BearerToken = null;
+            this.reportPdfViewer1.Size = new System.Drawing.Size(396, 246);
+            this.reportPdfViewer1.TabIndex = 4;
+            this.reportPdfViewer1.Visible = false;
             // 
             // FrmMenu
             // 
@@ -624,6 +666,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.ClientSize = new System.Drawing.Size(1480, 673);
+            this.Controls.Add(this.reportPdfViewer1);
+            this.Controls.Add(this.RepCadastro);
             this.Controls.Add(this.lblNotFound);
             this.Controls.Add(this.dgList);
             this.Controls.Add(this.gbSearchId);
@@ -691,5 +735,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn estado;
         private System.Windows.Forms.DataGridViewTextBoxColumn obs;
         private System.Windows.Forms.DataGridViewTextBoxColumn sit_cadastro;
+        private Microsoft.Reporting.WinForms.ReportViewer RepCadastro;
+        private Microsoft.Reporting.WinForms.ReportViewer reportPdfViewer1;
     }
 }

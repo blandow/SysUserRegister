@@ -1,6 +1,12 @@
 ﻿using Google.Protobuf.WellKnownTypes;
+using Microsoft.Reporting.Map.WebForms.BingMaps;
+using Microsoft.Reporting.WinForms;
+using Microsoft.ReportingServices.Interfaces;
+using Microsoft.ReportingServices.ReportProcessing.ReportObjectModel;
 using System;
 using System.Collections.Generic;
+using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.IO;
 using System.Windows.Forms;
@@ -26,6 +32,10 @@ namespace CadastroClientes
             loadList();
             baseboard();
 
+            btnEdit.Enabled = false;
+            btnId.Enabled = false;
+
+            this.reportPdfViewer1.RefreshReport();
         }
 
         private void loadList()
@@ -290,6 +300,97 @@ namespace CadastroClientes
                 }
             }
 
+        }
+
+        private void btnReport_Click(object sender, EventArgs e)
+        {
+            
+            DataTable dt = Utils.getQuery("select * from cliente");
+            DS.DataCliDataTable dscli = new DS.DataCliDataTable();
+
+            dscli.Merge(dt);
+
+            ReportDataSource rds = new ReportDataSource("DStable", dscli as DataTable);
+
+            reportPdfViewer1.LocalReport.DataSources.Clear();
+            reportPdfViewer1.LocalReport.DataSources.Add(rds);
+
+            Utils.ImprimirPdf(reportPdfViewer1, "Relatório Geral");
+        }
+
+        private void RepCadastro_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dgList_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            btnEdit.Enabled = true;
+            btnId.Enabled = true;
+        }
+
+        private void btnId_Click(object sender, EventArgs e)
+        {
+            string id = dgList.CurrentRow.Cells["id"].Value.ToString();
+            
+            DataRow lin = Utils.getQuery($"select * from cliente where id = {id}").Rows[0];
+            
+            /*string genero = "";
+            switch (lin["Genero"].ToString()) {
+                case "M":
+                        genero = "Masculino";
+                    break;
+                case "F":
+                    genero = "Feminino";
+                    break;
+                default:
+                    genero = "Outros";
+                    break;
+            }
+            */
+            
+            string img = FrmRegClient._imgPath + id.ToString() + ".png";
+            
+            if (!File.Exists(img))
+                img = FrmRegClient._imgPath + "no.png";
+            
+
+            ReportParameterCollection parameters = new ReportParameterCollection
+            {
+              /*  new ReportParameter("nome",lin["nome"].ToString()),
+                new ReportParameter("documento",lin["documento"].ToString()),
+                new ReportParameter("rg",lin["rg"].ToString()),
+                new ReportParameter("email",lin["email"].ToString()),
+                new ReportParameter("estado_civil",lin["estado_civil"].ToString()),
+                new ReportParameter("celular",lin["celular"].ToString()),
+                new ReportParameter("Genero",genero),
+                new ReportParameter("obs",lin["obs"].ToString()),
+                new ReportParameter("data_nasc",lin["data_nasc"].ToString()),
+                new ReportParameter("cidade",lin["cidade"].ToString()),
+                new ReportParameter("numero",lin["numero"].ToString()),
+                new ReportParameter("bairro",lin["bairro"].ToString()),
+                new ReportParameter("cep",lin["cep"].ToString()),
+                new ReportParameter("endereco",lin["endereco"].ToString()),
+                new ReportParameter("estado",lin["estado"].ToString()),
+                new ReportParameter("tipo_doc",lin["tipo_doc"].ToString()),
+                */
+                new ReportParameter("foto","File://" + img)
+            };
+
+            RepCadastro.LocalReport.SetParameters(parameters);
+            RepCadastro.RefreshReport();
+
+            DataTable dt = Utils.getQuery($"select * from cliente where id = {id}");
+            DS.DataCliDataTable dscli = new DS.DataCliDataTable();
+
+            dscli.Merge(dt);
+
+            ReportDataSource rds = new ReportDataSource("DataSet1", dscli as DataTable);
+
+            RepCadastro.LocalReport.DataSources.Clear();
+            RepCadastro.LocalReport.DataSources.Add(rds);
+
+            Utils.ImprimirPdf(RepCadastro, "Ficha Cadastro clientes");
         }
     }
 }

@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data;
-using System.Runtime.CompilerServices;
-using System.Security.Cryptography;
+using System.IO;
 using System.Windows.Forms;
+using Microsoft.Reporting.WinForms;
 using MySql.Data.MySqlClient;
 
 
@@ -39,13 +39,13 @@ namespace CadastroClientes
                     RadioButton radio = (RadioButton)Controle;
                     radio.Checked = false;
                 }
-                
+
             }
 
         }
-        public static void msgError(string msg) 
+        public static void msgError(string msg)
         {
-            MessageBox.Show(msg,"ERRO",MessageBoxButtons.OK,MessageBoxIcon.Error);
+            MessageBox.Show(msg, "ERRO", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
         public static void msgAlert(string msg)
         {
@@ -55,9 +55,9 @@ namespace CadastroClientes
         {
             MessageBox.Show(msg, "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
-        public static bool msgYesNO(string msg) 
+        public static bool msgYesNO(string msg)
         {
-            return MessageBox.Show(msg,"Confirmação",MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes;
+            return MessageBox.Show(msg, "Confirmação", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes;
         }
         public static DataTable getQuery(string query)
         {
@@ -65,12 +65,13 @@ namespace CadastroClientes
             using (MySqlConnection conect = new MySqlConnection(conectStr))
             {
                 conect.Open();
-                
-                using(MySqlCommand cmd = conect.CreateCommand())
+
+                using (MySqlCommand cmd = conect.CreateCommand())
                 {
                     cmd.CommandText = query;
-                    
-                    using(MySqlDataAdapter data = new MySqlDataAdapter(cmd)) {
+
+                    using (MySqlDataAdapter data = new MySqlDataAdapter(cmd))
+                    {
                         data.Fill(dt);
                     }
                 }
@@ -80,37 +81,67 @@ namespace CadastroClientes
         }
         public static void setCombobox(List<ComboBox> cblist)
         {
-            foreach(var cbitem in cblist){
-                
-                if(cbitem.DisplayMember.ToString() == "")
+            foreach (var cbitem in cblist)
+            {
+
+                if (cbitem.DisplayMember.ToString() == "")
                 {
                     break;
                 }
 
                 cbitem.DataSource = getQuery("SELECT DISTINCT(" + cbitem.DisplayMember + ") FROM cliente WHERE TRIM(" + cbitem.DisplayMember + ") <> ''");
-            
+
                 cbitem.SelectedIndex = -1;
             }
         }
-        public static void updateComand(string id,Dictionary<string,string> data)
+        public static void updateComand(string id, Dictionary<string, string> data)
         {
-            using (MySqlConnection con = new MySqlConnection(conectStr)) {
+            using (MySqlConnection con = new MySqlConnection(conectStr))
+            {
                 con.Open();
                 using (MySqlCommand cmd = con.CreateCommand())
                 {
                     string query = "UPDATE cliente SET ";
                     foreach (var item in data.Keys)
                     {
-                         query += item + $" = '{data[item]}' ,";
-                        
-                    };
+                        query += item + $" = '{data[item]}' ,";
+
+                    }
+                    ;
                     query = query.TrimEnd(',');
                     query += $" WHERE id = {id};";
 
                     cmd.CommandText = query;
                     cmd.ExecuteNonQuery();
                 }
-                
+
+            }
+        }
+
+        public static void ImprimirPdf(ReportViewer report, string nomeArquivo)
+        {
+            report.Refresh();
+            report.RefreshReport();
+            try
+            {
+                Warning[] warnings;
+                string[] streamIds;
+                string mimeType;
+                string encoding;
+                string fileNameExtension;
+
+                byte[] bytes = report.LocalReport.Render(
+                    "PDF", null, out mimeType, out encoding, out fileNameExtension,
+                    out streamIds, out warnings);
+                using (FileStream fs = new FileStream(nomeArquivo + ".pdf", FileMode.Create))
+                {
+                    fs.Write(bytes, 0, bytes.Length);
+                }
+                System.Diagnostics.Process.Start(nomeArquivo + ".pdf");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Erro ao gerar PDF: " + ex.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
         }
     }
